@@ -1,0 +1,119 @@
+parameters:
+- name: environmentToDeploy
+  displayName: 'Environment Name'
+  type: string
+  default: 'Test'
+  values:
+  - 'All'
+  - 'Sandbox'
+  - 'Sandbox02'
+  - 'Sandbox03'
+  - 'Sandbox04'
+  - 'Test'
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+      - feature/*
+
+schedules:
+  - cron: "0 0 * * *"
+    displayName: Nightly Run
+    branches:
+      include:
+        - develop
+    always: true
+
+stages:
+# Run Specflow on Sandbox environment
+- stage: 'run_specflow_sandbox'
+  displayName: 'Test Sandbox'
+  condition: in('${{ parameters.environmentToDeploy }}', 'Sandbox', 'All')
+  jobs:
+  - job: 'test_sandbox'
+    variables:
+    - group: specflow
+    displayName: 'Test Sandbox'
+    pool:
+      name: 'DEV-DCP-BUILD-AGENT'
+    steps:
+    - template : 'templates/deploy-specflow-sandbox.yml'
+      parameters:
+        buildConfiguration: '$(buildConfigurationSandboxLilial)'
+        testFiltercriteria: 'Category=smoke'
+        ProjectName: '$(ProjectNameLilial)'
+        testExecutionJson: '$(testExecutionJsonLilial)'
+# Run Specflow on Sandbox02 environment
+- stage: 'run_specflow_sandbox02'
+  displayName: 'Test Sandbox02'
+  condition: in('${{ parameters.environmentToDeploy }}', 'Sandbox02', 'All')
+  jobs:
+  - job: 'test_sandbox02'
+    variables:
+    - group: specflow
+    displayName: 'Test Sandbox02'
+    pool:
+      name: 'DEV-DCP-BUILD-AGENT'
+    steps:
+    - template : 'templates/deploy-specflow-sandbox.yml'
+      parameters:
+        buildConfiguration: '$(buildConfigurationSandbox02Lilial)'
+        testFiltercriteria: 'Category=smoke'
+        ProjectName: '$(ProjectNameLilial)'
+        testExecutionJson: '$(testExecutionJsonLilial)'
+# Run Specflow on Sandbox03 environment
+- stage: 'run_specflow_sandbox03'
+  displayName: 'Test Sandbox03'
+  condition: in('${{ parameters.environmentToDeploy }}', 'Sandbox03', 'All')
+  jobs:
+  - job: 'test_sandbox03'
+    variables:
+    - group: specflow
+    displayName: 'Test Sandbox03'
+    pool:
+      name: 'DEV-DCP-BUILD-AGENT'
+    steps:
+    - template : 'templates/deploy-specflow-sandbox.yml'
+      parameters:
+        buildConfiguration: '$(buildConfigurationSandbox03Lilial)'
+        testFiltercriteria: 'Category=smoke'
+        ProjectName: '$(ProjectNameLilial)'
+        testExecutionJson: '$(testExecutionJsonLilial)'
+# Run Specflow on Sandbox04 environment
+- stage: 'run_specflow_sandbox04'
+  displayName: 'Test Sandbox04'
+  condition: in('${{ parameters.environmentToDeploy }}', 'Sandbox04', 'All')
+  jobs:
+  - job: 'test_sandbox04'
+    variables:
+    - group: specflow
+    displayName: 'Test Sandbox04'
+    pool:
+      name: 'DEV-DCP-BUILD-AGENT'
+    steps:
+    - template : 'templates/deploy-specflow-sandbox.yml'
+      parameters:
+        buildConfiguration: '$(buildConfigurationSandbox04Lilial)'
+        testFiltercriteria: 'Category=smoke'
+        ProjectName: '$(ProjectNameLilial)'
+        testExecutionJson: '$(testExecutionJsonCLilial)'
+# Run Specflow on Test environment
+- stage: 'run_specflow_test'
+  displayName: 'Test Test'
+  condition: in('${{ parameters.environmentToDeploy }}', 'Test', 'All')
+  jobs:
+  - job: 'test_test'
+    variables:
+    - group: specflow
+    displayName: 'Test Test'
+    pool:
+      name: 'DEV-DCP-BUILD-AGENT'
+    steps:
+    - template : 'templates/deploy-specflow-sandbox.yml'
+      parameters:
+        buildConfiguration: '$(buildConfigurationTestLilial)'
+        testFiltercriteria: 'Category=smoke'
+        ProjectName: '$(ProjectNameLilial)'
+        testExecutionJson: '$(testExecutionJsonLilial)'

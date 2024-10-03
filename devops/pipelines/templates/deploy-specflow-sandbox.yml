@@ -1,0 +1,40 @@
+parameters:
+- name: buildConfiguration
+  type: string
+- name: testFiltercriteria
+  type: string
+- name: ProjectName
+  type: string
+- name: testExecutionJson    
+  type: string
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '**/${{parameters.ProjectName}}/*.csproj'
+    arguments: '--configuration ${{parameters.buildConfiguration}}'
+
+# - task: VSTest@2
+#   displayName: 'Automated smoke set'
+#   env:
+#     FILESHARE_SASTOKEN: $(sas_token)
+#   inputs:
+#     testAssemblyVer2: '**/bin/${{parameters.buildConfiguration}}/net6.0/${{parameters.ProjectName}}.dll'
+#     testFiltercriteria: '${{parameters.testFiltercriteria}}'
+#   continueOnError: true
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: '**/bin/${{parameters.buildConfiguration}}/net8.0/${{parameters.ProjectName}}.dll'
+    arguments: '--filter ${{parameters.testFiltercriteria}}'
+  continueOnError: true
+    
+# - task: SpecFlowPlus@0
+#   inputs:
+#     generatorSource: 'TestAssembly'
+#     testAssemblyFilePath: '**/bin/${{parameters.buildConfiguration}}/net6.0/${{parameters.ProjectName}}.dll'
+#     testExecutionJson: '**/bin/${{parameters.buildConfiguration}}/net6.0/${{parameters.testExecutionJson}}.json'
+#     projectName: '${{parameters.ProjectName}} - ${{parameters.buildConfiguration}} - ${{parameters.testFiltercriteria}}'
+#   continueOnError: true

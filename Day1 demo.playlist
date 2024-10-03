@@ -1,0 +1,88 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="Multisite" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="Multisite.Features" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="_1_BasicFeature" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._1_BasicFeature.CheckMultisiteOpened" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CheckMultisiteOpened" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._1_BasicFeature.LoginToMultisite" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="LoginToMultisite" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._1_BasicFeature.NavigateDeliveryInfoPageToUpdateMultipleAddress" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="NavigateDeliveryInfoPageToUpdateMultipleAddress" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="_2_SignUpFeature" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._2_SignUpFeature.CheckSignUpFlowIsStarted" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CheckSignUpFlowIsStarted" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._2_SignUpFeature.CreateNewB2CAccountAndFillProfileInfo" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CreateNewB2CAccountAndFillProfileInfo" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._2_SignUpFeature.UserCanResetThePassword" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="UserCanResetThePassword" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="_3_OrderAProductFeature" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._3_OrderAProductFeature.CheckICProductCard" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CheckICProductCard" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._3_OrderAProductFeature.CheckICProductPage" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="CheckICProductPage" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="Multisite.Features._3_OrderAProductFeature.DeliveryIsNotFreeWhileReordering" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="DeliveryIsNotFreeWhileReordering" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

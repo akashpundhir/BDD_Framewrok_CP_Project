@@ -1,0 +1,24 @@
+﻿{
+  "bindingCulture": {
+    "language": "en-us"
+  },
+  "language": {
+    "feature": "en-us"
+  },
+  "livingDocGenerator": {
+    "enabled": true,
+    "filePath": "TestExecutionHCP.json"
+  },
+  "stepAssemblies": [
+    {
+      "assembly": "Core"
+    }
+  ],
+  "trace": {
+    "traceTimings": true
+  },
+  "NRetrySettings": {
+    "maxRetries": 2,
+    "applyGlobally": true
+  }
+}
