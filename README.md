@@ -1,5 +1,5 @@
 # Introduction 
-Framework for Automated tests based on SpecFlow, Selenium, NUnit
+Framework for Automated tests based on SpecFlow, Selenium, NUnit and Reqnroll
 
 
 # Pre-requisites
